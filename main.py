@@ -1,26 +1,28 @@
-# This example requires the 'message_content' privileged intents
+# This example requires the 'message_content' intent.
 
-import os
 import discord
-from discord.ext import commands
+import os
+from urllib.parse import urlparse, urlunparse
 
+class MyClient(discord.Client):
+    async def on_ready(self):
+        print(f'Logged on as {self.user}!')
+
+    async def on_message(self, message):
+        if not message.author.bot:
+            u = urlparse(message.content)
+
+            if u.netloc == 'twitter.com':
+                u = u._replace(netloc='fxtwitter.com')
+            elif u.netloc == 'x.com':
+                u = u._replace(netloc='fixupx.com')
+                
+            await message.channel.send(urlunparse(u))
+            
+            
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents)
 
-
-@bot.event
-async def on_ready():
-    print(f"Logged in as {bot.user}")
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-@bot.command()
-async def hello(ctx):
-    await ctx.send("Choo choo! 🚅")
-
-
-bot.run(os.environ["DISCORD_TOKEN"])
+client = MyClient(intents=intents)
+client.run(os.environ["DISCORD_TOKEN"])
