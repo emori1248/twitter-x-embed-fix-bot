@@ -12,6 +12,9 @@ class MyClient(discord.Client):
         if not message.author.bot:
             u = urlparse(message.content)
 
+            if not 'twitter.com' in u.netloc or 'x.com' in u.netloc:
+                return
+
             if u.netloc == 'twitter.com':
                 u = u._replace(netloc='fxtwitter.com')
             elif u.netloc == 'x.com':
