@@ -1,27 +1,5 @@
----
-title: Discord Python bot
-description: A Discord bot written in Python
-tags:
-  - python
-  - discord.py
----
+# Discord.py Twitter/X URL "Fixer"
 
-# Discord.py Example
+Discord bot that fixes twitter/x links not having functioning embeds in discord (as of 1/12/2024) by redirecting them to [FxTwitter](https://github.com/FixTweet/FxTwitter).
 
-This example starts a Discord bot using [discord.py](https://discordpy.readthedocs.io/en/stable/).
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/PxM3nl)
-
-## ✨ Features
-
-- Python
-- Discord.py
-
-## 💁‍♀️ How to use
-
-- Install packages using `pip install -r requirements.txt`
-- Start the bot using `python main.py`
-
-## 📝 Notes
-
-This is a basic bot with the prefix `!`, more information can be founded at their [offical documentation](https://discordpy.readthedocs.io/en/stable/api.html).
+You can add the bot to your server with [this link](https://discord.com/api/oauth2/authorize?client_id=1195513177090297929&permissions=274878162944&scope=bot).
