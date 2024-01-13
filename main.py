@@ -17,7 +17,7 @@ class MyClient(discord.Client):
             elif u.netloc == 'x.com':
                 u = u._replace(netloc='fixupx.com')
                 
-            await message.reply(content=urlunparse(u), mention_author=False)
+            await message.reply(content=urlunparse(u), mention_author=False, silent=True)
             
             
 
