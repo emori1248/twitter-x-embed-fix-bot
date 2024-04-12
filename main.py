@@ -20,7 +20,12 @@ class MyClient(discord.Client):
             elif u.netloc == 'x.com':
                 u = u._replace(netloc='fixupx.com')
                 
-            await message.reply(content=urlunparse(u), mention_author=False, silent=True)
+            # Delete the old user message in case a partially functioning embed is present
+            await message.delete()
+
+            # Append the redirected link to a formatted message to indicate the original author after their message is deleted
+            content = message.author.mention + ": " + urlunparse(u)
+            await message.channel.send(content, silent=True)
             
             
 
