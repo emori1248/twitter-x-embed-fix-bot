@@ -12,7 +12,7 @@ class MyClient(discord.Client):
         if not message.author.bot:
             u = urlparse(message.content)
 
-            if not ('twitter.com' in u.netloc or 'x.com' in u.netloc):
+            if not ('twitter.com' in u.netloc or 'x.com' in u.netloc or 'instagram.com' in u.netloc or 'tiktok.com' in u.netloc):
                 return
 
             if u.netloc == 'twitter.com':
