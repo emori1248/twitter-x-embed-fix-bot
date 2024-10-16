@@ -20,10 +20,10 @@ class MyClient(discord.Client):
             elif u.netloc == 'x.com':
                 u = u._replace(netloc='fixupx.com')
 
-            elif u.netloc == 'instagram.com':
+            elif u.netloc == 'instagram.com' or u.netloc == 'www.instagram.com':
                 u = u._replace(netloc='ddinstagram.com')
 
-            elif u.netloc == 'tiktok.com':
+            elif u.netloc == 'tiktok.com' or u.netloc == 'www.tiktok.com':
                 u = u._replace(netloc='tnktok.com')
                 
             # Delete the old user message in case a partially functioning embed is present
